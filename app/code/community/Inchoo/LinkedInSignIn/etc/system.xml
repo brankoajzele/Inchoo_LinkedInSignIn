@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Branko Ajzele <ajzele@gmail.com>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <inchoo_linkedinsignin translate="label" module="inchoo_linkedinsignin">
+            <label>Sign In With LinkedIn</label>
+            <tab>service</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>2000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Sign In With LinkedIn Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label" module="inchoo_linkedinsignin">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <api_key translate="label">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[You can get your API key by going to <a href="https://www.linkedin.com/secure/developer">https://www.linkedin.com/secure/developer</a> and creating an application.]]></comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </api_key> 
+                       <platform_js translate="label">
+                            <label>Platform JavaScript Url</label>
+                            <comment><![CDATA[Please do not change this value unless you know exactly what you are doing.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </platform_js>
+                        <button_position translate="label">
+                            <label>Position</label>
+                            <comment><![CDATA[Controls the position of the Twitter login button in the main navigation menu. Please use integer value. Default value is set to 9999.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_position>                                                                                     
+                    </fields>
+                </settings>
+            </groups>
+        </inchoo_linkedinsignin>
+    </sections>
+</config>

@@ -1,0 +1,40 @@
+<?php $_helper = $this->helper('inchoo_linkedinsignin') ?>
+<?php echo '<script type="text/javascript" src="'.$_helper->getPlatformJs().'">'."\r\n" ?>
+<?php echo "api_key: ".$_helper->getApiKey()."\r\n" ?>
+<?php echo "authorize: true\r\n" ?>
+<?php echo "</script>\r\n" ?>
+<script type="text/javascript">
+//<![CDATA[    
+document.observe("dom:loaded", function() {
+    $$('a[href*="customer/account/logout"]').each(function(e) {
+        e.onclick = function(event) { 
+            event.preventDefault();
+            IN.User.logout(function redirect() {
+                window.location.href = '<?php echo $_helper->getLogoutUrl() ?>';
+            });            
+        }
+    });  
+});
+
+function onLinkedInAuth() {
+    IN.API.Profile("me").result( function(me) {
+        var id = me.values[0].id;
+        var firstName = me.values[0].firstName;
+        var lastName = me.values[0].lastName;
+
+        new Ajax.Request('<?php echo $_helper->getLoginUrl() ?>', {
+            method: 'post',
+            parameters: {id: id, firstname: firstName,lastname: lastName},
+            onSuccess: function(response) {
+                window.location.reload();
+            },
+            onFailure: function(response) {
+                IN.User.logout(function redirect() {
+                    window.location.href = '<?php echo Mage::getUrl() ?>';
+                }); 
+            }
+        });
+    });
+}
+//]]>
+</script>
